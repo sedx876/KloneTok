@@ -1,7 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from "react";
+import VideoFooter from "./VideoFooter";
+import VideoSidebar from "./VideoSidebar";
 import "./Video.css";
 
-function Video() {
+function Video({ url, channel, description, song, likes, messages, shares }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef(null);
 
@@ -17,16 +19,17 @@ function Video() {
 
   return (
     <div className="video">
-      <h1>This might be a video</h1>
-      <video className="video__player" 
-      loop
-      onClick={onVideoPress}
-      ref={videoRef}
-      src="">
-
-      </video>
+      <video
+        className="video__player"
+        loop
+        onClick={onVideoPress}
+        ref={videoRef}
+        src={url}
+      ></video>
+      <VideoFooter channel={channel} description={description} song={song} />
+      <VideoSidebar likes={likes} messages={messages} shares={shares} />
     </div>
-  )
+  );
 }
 
-export default Video
+export default Video;
