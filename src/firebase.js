@@ -1,3 +1,5 @@
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyB68hRd5Bi0KJeS2szkkuR7I7ewA38YE-4",
   authDomain: "klonetok.firebaseapp.com",
@@ -8,3 +10,9 @@ const firebaseConfig = {
   appId: "1:459099258790:web:24598904542689ab6ad967",
   measurementId: "G-NQ8GRMMHEQ"
 };
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const db = firebaseApp.firestore();
+
+export default db;
